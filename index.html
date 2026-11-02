@@ -231,22 +231,27 @@
   .web-screens {
     display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 24px);
     padding: clamp(12px, 2.5vw, 28px);
-    background: linear-gradient(160deg, #0b1411 0%, #0e1b16 100%); /* near-black with the app's green cast */
+    background: var(--salmon); /* light enough that the dark screens stand apart from it */
     border: 2px solid var(--ink); border-radius: 24px;
   }
-  .web-screens img { display: block; width: 100%; height: auto; }
+  .web-screens img { display: block; width: 100%; height: auto; filter: drop-shadow(0 12px 24px rgba(29,26,30,.3)); }
   .web-screens img:first-child { grid-column: 1 / -1; }
 
   /* ---------- Website case ---------- */
   .case.case-site { grid-template-columns: 1fr; gap: clamp(24px, 3vw, 40px); align-items: start; }
   .case-site .feature-head { max-width: 680px; }
   .site-screens {
-    display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(12px, 2vw, 24px);
-    padding: clamp(12px, 2.5vw, 28px);
-    background: linear-gradient(160deg, #1b1311 0%, #261813 100%); /* the site's own dark brown */
+    --pad: clamp(12px, 2.5vw, 28px);
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--pad);
+    padding: var(--pad);
+    overflow: hidden;
+    background: var(--blue); /* cool blue against the site's warm orange and brown */
     border: 2px solid var(--ink); border-radius: 24px;
   }
   .site-screens img { display: block; width: 100%; height: auto; }
+  /* first half sits on the panel's bottom edge, second half hangs from its top edge */
+  .site-screens img:first-child { align-self: end; margin-bottom: calc(var(--pad) * -1); }
+  .site-screens img:last-child { align-self: start; margin-top: calc(var(--pad) * -1); }
 
   /* ---------- Contact ---------- */
   #contact { text-align: center; padding-bottom: 120px; }
@@ -289,6 +294,7 @@
     .case-system .system-copy { position: static; }
     .web-screens { grid-template-columns: 1fr; }
     .site-screens { grid-template-columns: 1fr; gap: 0; }
+    .site-screens img:first-child, .site-screens img:last-child { margin: 0; }
     .case:nth-of-type(even) .case-art { order: 0; }
     .skills, .tools { grid-template-columns: 1fr; }
     .tool .icon { width: 96px; height: 96px; }
