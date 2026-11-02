@@ -237,6 +237,17 @@
   .web-screens img { display: block; width: 100%; height: auto; }
   .web-screens img:first-child { grid-column: 1 / -1; }
 
+  /* ---------- Website case ---------- */
+  .case.case-site { grid-template-columns: 1fr; gap: clamp(24px, 3vw, 40px); align-items: start; }
+  .case-site .feature-head { max-width: 680px; }
+  .site-screens {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(12px, 2vw, 24px);
+    padding: clamp(12px, 2.5vw, 28px);
+    background: linear-gradient(160deg, #1b1311 0%, #261813 100%); /* the site's own dark brown */
+    border: 2px solid var(--ink); border-radius: 24px;
+  }
+  .site-screens img { display: block; width: 100%; height: auto; }
+
   /* ---------- Contact ---------- */
   #contact { text-align: center; padding-bottom: 120px; }
   #contact h2 { font-size: clamp(44px, 8vw, 96px); max-width: 14ch; margin: 0 auto 28px; }
@@ -277,6 +288,7 @@
     .case, .case:nth-of-type(even) { grid-template-columns: 1fr; }
     .case-system .system-copy { position: static; }
     .web-screens { grid-template-columns: 1fr; }
+    .site-screens { grid-template-columns: 1fr; gap: 0; }
     .case:nth-of-type(even) .case-art { order: 0; }
     .skills, .tools { grid-template-columns: 1fr; }
     .tool .icon { width: 96px; height: 96px; }
@@ -514,15 +526,15 @@
         </div>
       </article>
 
-      <article class="case reveal">
-        <div class="case-art" style="background:var(--plum)">
-          <svg class="sketch" viewBox="0 0 200 150" aria-hidden="true"><rect x="16" y="16" width="168" height="118" rx="12" fill="#fff" stroke="#1d1a1e" stroke-width="3"/><circle cx="32" cy="30" r="4" fill="#1d1a1e"/><circle cx="46" cy="30" r="4" fill="#1d1a1e"/><circle cx="60" cy="30" r="4" fill="#1d1a1e"/><path d="M30 60 H110 M30 76 H90" stroke="#1d1a1e" stroke-width="4" stroke-linecap="round"/><rect x="30" y="94" width="44" height="18" rx="9" fill="#F45866" stroke="#1d1a1e" stroke-width="3"/><circle cx="144" cy="82" r="26" fill="#F49390" stroke="#1d1a1e" stroke-width="3"/></svg>
-        </div>
-        <div>
+      <article class="case case-site reveal">
+        <div class="feature-head">
           <div class="case-meta"><span class="num">06</span><span>Website</span></div>
-          <h3>Project name</h3>
-          <p>One sentence on the problem, one on what you did, one on the result. Add your designs here.</p>
-          <a class="link" href="#work">View website →</a>
+          <h3>Melior</h3>
+          <p>The company website for Melior, designed as a single page that introduces its services, specialisations, results and case studies, and leads visitors to a clear call to action to get in touch. I designed the layout and visual style: a dark theme with orange accents and a fine grid-line motif that ties the sections together.</p>
+        </div>
+        <div class="site-screens">
+          <img src="assets/melior-site-top.webp" width="989" height="2000" alt="Top half of the Melior home page: hero with the headline Doing IT Better, services, certifications, specialisations and industries" loading="lazy" decoding="async">
+          <img src="assets/melior-site-bottom.webp" width="911" height="2000" alt="Bottom half of the Melior home page: company statistics, case studies, a call to action and the footer" loading="lazy" decoding="async">
         </div>
       </article>
     </div>
