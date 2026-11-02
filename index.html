@@ -191,8 +191,8 @@
     display: grid; grid-template-columns: repeat(3, 1fr); align-items: start;
     gap: clamp(16px, 3vw, 40px);
     padding: clamp(20px, 4vw, 48px);
-    /* sky-blue to soft mint, taken from the app's own background */
-    background: linear-gradient(155deg, #b4d4ea 0%, #cfe4f1 45%, #dcebe3 100%);
+    /* deep blue with a barely-there shift, so the light screens stand out */
+    background: linear-gradient(160deg, #335f82 0%, #3d7197 55%, #4880a6 100%);
     border: 2px solid var(--ink); border-radius: 24px;
   }
   .screens img {
@@ -214,6 +214,16 @@
     }
     .screens img, .screens img:nth-child(even) { flex: 0 0 74%; width: 74%; margin-top: 0; scroll-snap-align: center; }
   }
+
+  /* ---------- Design system case ---------- */
+  .case.case-system { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-items: start; gap: clamp(24px, 4vw, 56px); }
+  .case-system .system-copy { position: sticky; top: 96px; }
+  .system-panel {
+    padding: clamp(16px, 3vw, 32px);
+    background: linear-gradient(160deg, #2a2342 0%, #1d1a30 100%); /* dark violet, from the system's own sheet */
+    border: 2px solid var(--ink); border-radius: 24px;
+  }
+  .system-panel img { display: block; width: 100%; height: auto; border-radius: 16px; }
 
   /* ---------- Contact ---------- */
   #contact { text-align: center; padding-bottom: 120px; }
@@ -253,6 +263,7 @@
     section { padding-block: clamp(72px, 11vh, 110px); }
     #home { padding-top: 110px; min-height: 92svh; }
     .case, .case:nth-of-type(even) { grid-template-columns: 1fr; }
+    .case-system .system-copy { position: static; }
     .case:nth-of-type(even) .case-art { order: 0; }
     .skills, .tools { grid-template-columns: 1fr; }
     .tool .icon { width: 96px; height: 96px; }
@@ -442,15 +453,14 @@
         </div>
       </article>
 
-      <article class="case reveal">
-        <div class="case-art" style="background:var(--blue)">
-          <svg class="sketch" viewBox="0 0 200 150" aria-hidden="true"><rect x="24" y="22" width="68" height="44" rx="10" fill="#F45866" stroke="#1d1a1e" stroke-width="3"/><circle cx="142" cy="44" r="24" fill="#fff" stroke="#1d1a1e" stroke-width="3"/><rect x="24" y="84" width="40" height="40" rx="8" fill="#fff" stroke="#1d1a1e" stroke-width="3"/><rect x="76" y="84" width="40" height="40" rx="20" fill="#5F9EBB" stroke="#1d1a1e" stroke-width="3"/><path d="M130 124 L150 84 L170 124 Z" fill="#F49390" stroke="#1d1a1e" stroke-width="3" stroke-linejoin="round"/></svg>
-        </div>
-        <div>
+      <article class="case case-system reveal">
+        <div class="system-copy">
           <div class="case-meta"><span class="num">02</span><span>Design system</span></div>
-          <h3>My design system</h3>
-          <p>How I built my own design system: the tokens, components and rules behind it. Add your designs here.</p>
-          <a class="link" href="#work">View design system →</a>
+          <h3>Lavender</h3>
+          <p>Lavender is a design system I designed and built from scratch. It documents the colour palette, typography and a library of ready-to-use components such as form fields, file upload, date picker, cards, accordions, pagination and navigation. Together they give designers and developers one shared reference, so interfaces stay consistent and are faster to build and hand off.</p>
+        </div>
+        <div class="system-panel">
+          <img src="assets/lavender-design-system.webp" width="1024" height="2000" alt="Lavender design system sheet showing the colour palette, the Albert Sans font, a file upload, select and accordion components, a date picker, a card, pagination and a navbar" loading="lazy" decoding="async">
         </div>
       </article>
 
