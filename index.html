@@ -231,7 +231,7 @@
   .web-screens {
     display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 24px);
     padding: clamp(12px, 2.5vw, 28px);
-    background: var(--salmon); /* light enough that the dark screens stand apart from it */
+    background: linear-gradient(160deg, #20704b 0%, #15523a 100%); /* deep green in the hue of the Generate button */
     border: 2px solid var(--ink); border-radius: 24px;
   }
   .web-screens img { display: block; width: 100%; height: auto; filter: drop-shadow(0 12px 24px rgba(29,26,30,.3)); }
@@ -245,13 +245,27 @@
     display: grid; grid-template-columns: 1fr 1fr; gap: var(--pad);
     padding: var(--pad);
     overflow: hidden;
-    background: var(--blue); /* cool blue against the site's warm orange and brown */
+    background: linear-gradient(160deg, #9c3718 0%, #7a2a12 100%); /* deep orange from the site's button colour */
     border: 2px solid var(--ink); border-radius: 24px;
   }
   .site-screens img { display: block; width: 100%; height: auto; }
   /* first half sits on the panel's bottom edge, second half hangs from its top edge */
   .site-screens img:first-child { align-self: end; margin-bottom: calc(var(--pad) * -1); }
   .site-screens img:last-child { align-self: start; margin-top: calc(var(--pad) * -1); }
+
+  /* ---------- Documents platform case ---------- */
+  .case.case-docs { grid-template-columns: 1fr; gap: clamp(24px, 3vw, 40px); align-items: start; }
+  .case-docs .feature-head { max-width: 680px; }
+  .docs-screens {
+    display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(12px, 2vw, 24px);
+    padding: clamp(12px, 2.5vw, 28px);
+    background: var(--salmon);
+    border: 2px solid var(--ink); border-radius: 24px;
+  }
+  .docs-screens img { display: block; width: 100%; height: auto; filter: drop-shadow(0 12px 24px rgba(29,26,30,.28)); }
+  .docs-screens > img:first-child { grid-column: 1 / -1; }
+  .docs-phones { grid-column: 1 / -1; display: flex; justify-content: center; gap: clamp(12px, 3vw, 32px); padding-top: clamp(4px, 1vw, 12px); }
+  .docs-phones img { width: min(250px, 44%); }
 
   /* ---------- Contact ---------- */
   #contact { text-align: center; padding-bottom: 120px; }
@@ -295,6 +309,8 @@
     .web-screens { grid-template-columns: 1fr; }
     .site-screens { grid-template-columns: 1fr; gap: 0; }
     .site-screens img:first-child, .site-screens img:last-child { margin: 0; }
+    .docs-screens { grid-template-columns: 1fr; }
+    .docs-phones { gap: 16px; }
     .case:nth-of-type(even) .case-art { order: 0; }
     .skills, .tools { grid-template-columns: 1fr; }
     .tool .icon { width: 96px; height: 96px; }
@@ -318,6 +334,9 @@
     .hero .cta { flex-direction: column; align-items: stretch; }
     .btn { text-align: center; }
     .doodle-star { display: none; }
+    /* two phones side by side would be too small to read, so stack them */
+    .docs-phones { flex-direction: column; align-items: center; }
+    .docs-phones img { width: min(240px, 82%); }
     .case { padding: 16px; border-radius: 20px; }
     .case-art { border-radius: 14px; }
     #contact .btn { font-size: 14px; padding-inline: 18px; overflow-wrap: anywhere; }
@@ -508,15 +527,21 @@
         </div>
       </article>
 
-      <article class="case reveal">
-        <div class="case-art" style="background:var(--salmon)">
-          <svg class="sketch" viewBox="0 0 200 150" aria-hidden="true"><rect x="16" y="16" width="168" height="118" rx="12" fill="#fff" stroke="#1d1a1e" stroke-width="3"/><path d="M16 44 H184 M16 72 H184 M16 100 H184 M70 44 V134" stroke="#1d1a1e" stroke-width="3"/><circle cx="43" cy="86" r="8" fill="#8D2A5F"/><path d="M88 58 H150 M88 86 H130 M88 114 H160" stroke="#1d1a1e" stroke-width="3" stroke-linecap="round"/></svg>
-        </div>
-        <div>
+      <article class="case case-docs reveal">
+        <div class="feature-head">
           <div class="case-meta"><span class="num">04</span><span>Web app</span></div>
-          <h3>Project name</h3>
-          <p>One sentence on the problem, one on what you did, one on the result. Add your designs here.</p>
-          <a class="link" href="#work">View case study →</a>
+          <h3>Gambit Docs</h3>
+          <p>Gambit Docs is a web platform for firms that work with large volumes of documents. Teams upload files, then convert, compare and summarise them, check for conflicts and generate cost estimates, while an overview dashboard tracks activity across the firm and a people area manages accounts and roles. I designed the desktop experience and a responsive mobile version, including navigation, dashboards and data tables.</p>
+        </div>
+        <div class="docs-screens">
+          <img src="assets/docs-overview.webp" width="2000" height="1299" alt="Overview dashboard with document statistics, a bar chart of comparisons by company and a line chart of monthly trends" loading="lazy" decoding="async">
+          <img src="assets/docs-files.webp" width="2000" height="1299" alt="Files screen with a grid of available documents and an upload panel for choosing an analysis type" loading="lazy" decoding="async">
+          <img src="assets/docs-cost-estimate.webp" width="2000" height="1299" alt="Cost estimate screen with a budget alert, summary figures, supporting quotes and a budget review" loading="lazy" decoding="async">
+          <img src="assets/docs-people.webp" width="2000" height="1299" alt="People screen with a table of user accounts, firms, roles and active toggles" loading="lazy" decoding="async">
+          <div class="docs-phones">
+            <img src="assets/docs-overview-mobile.png" width="750" height="1624" alt="Mobile overview with the same statistics stacked in one column" loading="lazy" decoding="async">
+            <img src="assets/docs-menu-mobile.webp" width="750" height="1626" alt="Mobile navigation menu with firm selector, menu and settings sections" loading="lazy" decoding="async">
+          </div>
         </div>
       </article>
 
